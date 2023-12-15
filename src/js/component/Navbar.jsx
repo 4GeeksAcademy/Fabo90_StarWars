@@ -18,9 +18,9 @@ export const Navbar = () => {
 								Favorites
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								
 								<li><a className="dropdown-item" href="#">Action</a></li>
-								<li><a className="dropdown-item" href="#">Another action</a></li>
-								<li><a className="dropdown-item" href="#">Something else here</a></li>
+								
 							</ul>
 						</li>
 					</ul>

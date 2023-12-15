@@ -4,11 +4,12 @@ import ScrollToTop from "./component/Scroll.jsx";
 
 import { Home } from "./views/home.jsx";
 import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+import { Character } from "./views/Character.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/Navbar.jsx";
 import { Footer } from "./component/footer";
+import { Planet } from "./views/Planet.jsx";
 
 //create your first component
 const Layout = () => {
@@ -23,7 +24,8 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
-						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/character/:theid" element={<Character />} />
+						<Route path="/planet/:theid" element={<Planet />} />
 					</Routes>
 			</BrowserRouter>
 		</div>

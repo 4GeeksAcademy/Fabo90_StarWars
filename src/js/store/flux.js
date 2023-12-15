@@ -3,6 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			characters: [],
 			planets: [],
+			character: {},
+			planet: {},
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -38,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return;
 					}
 
-					setStore({ characters: data.results})
+					setStore({ characters: data.results })
 				} catch (error) {
 					console.log(error);
 				}
@@ -53,12 +55,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return;
 					}
 
-					setStore({ planets: data.results})
+					setStore({ planets: data.results })
 				} catch (error) {
 					console.log(error);
 				}
-			}, 
-	},
+			},
+			getCharacter: async (id) => {
+				try {
+					const response = await fetch("https://swapi.dev/api/people/" + id);
+					const data = await response.json();
+					console.log(data);
+					if (!response.ok) {
+						console.log(response.statusText);
+						return;
+					}
+
+					setStore({ character: data })
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			getPlanet: async (id) => {
+				try {
+					const response = await fetch("https://swapi.dev/api/planets/" + id);
+					const data = await response.json();
+					console.log(data);
+					if (!response.ok) {
+						console.log(response.statusText);
+						return;
+					}
+
+					setStore({ planet: data })
+				} catch (error) {
+					console.log(error);
+				}
+			},
+		},
 	};
 };
 
