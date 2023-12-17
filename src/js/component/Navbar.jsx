@@ -10,7 +10,9 @@ export const Navbar = () => {
 	return (
 		<div className="container-fluid px-5">
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
-				<a className="navbar-brand fw-bold" href="/">STAR WARS</a>
+				<Link to={"/"}>
+					<p className="btn btn-outline-dark fw-bold btn-lg m-3">STAR WARS</p>
+				</Link>
 				<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
@@ -24,7 +26,7 @@ export const Navbar = () => {
 								{store.favorite.map((ele, ind) => (
 
 									<li>
-										<a className="dropdown-item" href="#" key={ind}>{ele} <i className="fas fa-trash-alt" onClick={() => actions.deleteFavoriteCharacter()} /></a>
+										<a className="dropdown-item" href="#" key={ind}>{ele} <i className="fas fa-trash-alt" onClick={() => actions.deleteFavorite(ind)} /></a>
 									</li>
 								))}
 

@@ -22,7 +22,7 @@ export const CharacterCard = () => {
                             <Link to={"/character/" + (id + 1)}>
                                 <a href="#" className="btn btn-outline-primary">Learn More!</a>
                             </Link>
-                            <i className="fa fa-heart btn btn-outline-warning ms-5" onClick={() => actions.getFavoriteCharacter(id)} /> 
+                            <i className="fa fa-heart btn btn-outline-warning ms-5" onClick={() => actions.getFavoriteCharacter(id)} />
                         </div>
                     </div>
                 ))}
