@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			character: {},
 			planet: {},
+			favorite: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -86,6 +87,58 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 
 					setStore({ planet: data })
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			getFavoriteCharacter: async (id) => {
+				try {
+					const response = await fetch("https://swapi.dev/api/people/" + (id + 1));
+					const data = await response.json();
+					console.log(data);
+					if (!response.ok) {
+						console.log(response.statusText);
+						return;
+					}
+
+					const store = getStore();
+					store.favorite.push(data.name);
+					setStore({ favorite: store.favorite })
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			getFavoritePlanet: async (id) => {
+				try {
+					const response = await fetch("https://swapi.dev/api/planets/" + (id + 1));
+					const data = await response.json();
+					console.log(data);
+					if (!response.ok) {
+						console.log(response.statusText);
+						return;
+					}
+
+					const store = getStore();
+					store.favorite.push(data.name);
+					setStore({ favorite: store.favorite })
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			deleteFavoriteCharacter: async (id) => {
+				try {
+					const response = await fetch("https://swapi.dev/api/people/" + (id + 1));
+					const data = await response.json();
+					console.log(data);
+					if (!response.ok) {
+						console.log(response.statusText);
+						return;
+					}
+					const store = getStore();
+					const aux = store.favorite.filter(item => {
+						id != item;
+					});
+					setStore({ favorite: aux });
 				} catch (error) {
 					console.log(error);
 				}

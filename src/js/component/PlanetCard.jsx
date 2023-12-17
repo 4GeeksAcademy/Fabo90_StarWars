@@ -21,7 +21,7 @@ export const PlanetCard = () => {
                             <Link to={"/planet/" + (id + 1)}>
                                 <a href="#" className="btn btn-outline-primary">Learn More!</a>
                             </Link>
-                            <i className="fa fa-heart btn btn-outline-warning ms-5" />
+                            <i className="fa fa-heart btn btn-outline-warning ms-5" onClick={() => actions.getFavoritePlanet(id)} />
                         </div>
                     </div>
                 ))}
